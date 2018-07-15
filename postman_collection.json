@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "f0963ce4-fee4-4c56-a79e-da68ab60aaec",
+		"name": "SChallenge API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /hotels create new hotel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Java\",\n\t\"address\" : \"Belgrade\",\n\t\"description\" : \"Best in Belgrade\",\n\t\"rating\" : 4.15\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/hotels",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /hotels ascending order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/hotels",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hotels"
+					]
+				},
+				"description": "Get all hotels in ascending order"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /hotels Update hotel",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\" : 1,\n\t\"name\" : \"Java\",\n\t\"address\" : \"Belgrade\",\n\t\"description\" : \"Best in Belgrade 2018\",\n\t\"rating\" : 4.20\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/hotels",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /hotels by  name and address (both params are required)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/hotels/search?address=Belgrade&name=Java",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hotels",
+						"search"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "Belgrade"
+						},
+						{
+							"key": "name",
+							"value": "Java"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
