@@ -20,10 +20,15 @@ public class HotelServiceImpl implements HotelService {
 	public Hotel create(Hotel newHotel) {
 		return hotelRepository.save(newHotel);
 	}
-
+ 
 	@Override
 	public Hotel update(Hotel updateHotel) {
 		return hotelRepository.save(updateHotel);
+	}
+
+	@Override
+	public Hotel getByNameOrAddress(String name, String address) {
+		return hotelRepository.findByNameAndAddress(name, address);
 	}
 
 }

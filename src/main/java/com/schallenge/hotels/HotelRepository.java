@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface HotelRepository extends JpaRepository<Hotel, Long> {
 
 	List<Hotel> findAllByOrderByName();
-
+	Hotel findByNameAndAddress(String name, String address);
 }
