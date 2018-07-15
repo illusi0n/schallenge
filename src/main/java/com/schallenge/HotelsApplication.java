@@ -1,4 +1,4 @@
-package com.schallenge.hotels;
+package com.schallenge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
