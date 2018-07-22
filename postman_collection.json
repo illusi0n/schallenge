@@ -6,108 +6,405 @@
 	},
 	"item": [
 		{
-			"name": "POST /hotels create new hotel",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\" : \"Java\",\n\t\"address\" : \"Belgrade\",\n\t\"description\" : \"Best in Belgrade\",\n\t\"rating\" : 4.15\n}"
-				},
-				"url": {
-					"raw": "localhost:8080/hotels",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"hotels"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET /hotels ascending order",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "localhost:8080/hotels",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"hotels"
-					]
-				},
-				"description": "Get all hotels in ascending order"
-			},
-			"response": []
-		},
-		{
-			"name": "PUT /hotels Update hotel",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"id\" : 1,\n\t\"name\" : \"Java\",\n\t\"address\" : \"Belgrade\",\n\t\"description\" : \"Best in Belgrade 2018\",\n\t\"rating\" : 4.20\n}"
-				},
-				"url": {
-					"raw": "localhost:8080/hotels",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"hotels"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET /hotels by  name and address (both params are required)",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "localhost:8080/hotels/search?address=Belgrade&name=Java",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"hotels",
-						"search"
-					],
-					"query": [
-						{
-							"key": "address",
-							"value": "Belgrade"
+			"name": "Hotel",
+			"description": "",
+			"item": [
+				{
+					"name": "POST /hotels create hotel admin",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
 						},
-						{
-							"key": "name",
-							"value": "Java"
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\" : \"React\",\n\t\"address\" : \"Kragujevac\",\n\t\"description\" : \"Best in Belgrade\",\n\t\"rating\" : 4.16\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/hotels",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hotels"
+							]
+						},
+						"description": "Create new hotel by admin role"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /hotels Update hotel",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"id\": 8,\n    \"name\": \"C#\",\n    \"address\": \"Belgrade\",\n    \"description\": \"Random description\",\n    \"rating\": 1.338\n }"
+						},
+						"url": {
+							"raw": "localhost:8080/hotels",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hotels"
+							]
 						}
-					]
+					},
+					"response": []
+				},
+				{
+					"name": "GET /hotels ascending order admin",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/hotels",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hotels"
+							]
+						},
+						"description": "Get all hotels in ascending order by admin role"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /hotels ascending order user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/hotels",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hotels"
+							]
+						},
+						"description": "Get all hotels in ascending order by user role"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /hotels ascending order anonymous",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/hotels",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hotels"
+							]
+						},
+						"description": "Get all hotels in ascending order by anonymous"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /hotels by address admin",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/hotels?address=Belgrade",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hotels"
+							],
+							"query": [
+								{
+									"key": "address",
+									"value": "Belgrade"
+								}
+							]
+						},
+						"description": "Get hotels by address, ordered by name asc"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /hotels by name admin",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/hotels?name=Java",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hotels"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Java"
+								}
+							]
+						},
+						"description": "Get hotels by name, ordered by name asc"
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Account",
+			"description": "",
+			"item": [
+				{
+					"name": "POST /accounts admin",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\" : \"user123\",\n\t\"password\" : \"123\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/accounts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts"
+							]
+						},
+						"description": "Create new account (role User) by admin role"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /accounts anonymous",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\" : \"user123\",\n\t\"password\" : \"123\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/accounts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts"
+							]
+						},
+						"description": "Create new account (role User) by anonymous"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /accounts admin",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/accounts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts"
+							]
+						},
+						"description": "Get all accounts by admin role"
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
