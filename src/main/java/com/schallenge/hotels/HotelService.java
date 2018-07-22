@@ -7,5 +7,5 @@ public interface HotelService {
 	List<Hotel> getAllAscending();
 	Hotel create(Hotel newHotel);
 	Hotel update(Hotel updateHotel);
-	Hotel getByNameOrAddress(String name, String address);
+	List<Hotel> getByNameOrAddress(String name, String address);
 }

@@ -1,5 +1,7 @@
 	Overall
 	- Wrap exceptions and return something more meaningful to the client (response error codes with message)
+	- Fix id generate issue
+	- Update Postman collection
 
 	Hotels
 	- Add auto-generated hotels at the beggining
@@ -9,19 +11,20 @@
 	- Add validation for unique hotel/address
 	- Add pagination support when searching hotels
 
-	Users
+	Accounts
 	- When user is authenticated get a token, then use that in HTTP calls (e.g. Postman scripts) in order to have access
 	- Add client message when credentials are incorrect
 	- Add username to be unique
 	- Add email field and email verification
 	- Refactor create account with CreateAccountDTO
 	- Refactor Account DTO names
+	- Add to Swagger
 	
 	- [DONE] Add Spring Security for registering/authenticating users
 	- [DONE] Hash password before storing in DB
-	
-	Accounts and Hotels
-	- Fix id generate issue
 
 	Unit tests
-	- Once validations are added for hotels/users unit tests should verify that only valid objects are passing validations111
+	- Once validations are added for hotels/users unit tests should verify that only valid objects are passing validations
+	
+	DB
+	- Add constraints for each Entity

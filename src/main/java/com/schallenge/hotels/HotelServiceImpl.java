@@ -26,8 +26,8 @@ public class HotelServiceImpl implements HotelService {
 	}
 
 	@Override
-	public Hotel getByNameOrAddress(String name, String address) {
-		return hotelRepository.findByNameAndAddress(name, address);
+	public List<Hotel> getByNameOrAddress(String name, String address) {
+		return hotelRepository.findByNameOrAddress(name, address);
 	}
 
 }

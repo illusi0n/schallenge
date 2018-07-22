@@ -36,9 +36,9 @@ public class HotelController {
 		return hotelService.update(updateHotel);
 	}
 
-	@ApiOperation(value="Search hotel by name and address.Currently working only with both parameters.")
+	@ApiOperation(value="Search hotels by name or address")
 	@GetMapping("/hotels/search")
-	public Hotel getByNameOrAddress(@RequestParam(required=false) String name, @RequestParam(required=false) String address) {
+	public List<Hotel> getByNameOrAddress(@RequestParam(required=false) String name, @RequestParam(required=false) String address) {
 		return hotelService.getByNameOrAddress(name, address);
 	}
 }
