@@ -18,12 +18,6 @@ public class HotelController {
 	@Autowired
 	private HotelService hotelService;
 
-	@ApiOperation(value="Get all hotels by name in ascending order")
-	@GetMapping("/hotels")
-	public List<Hotel> getAllAscending() {
-		return hotelService.getAllAscending();
-	}
-
 	@ApiOperation(value="Create new hotel by providing hotel details")
 	@PostMapping("/hotels")
 	public Hotel create(@RequestBody Hotel newHotel) {
@@ -36,9 +30,10 @@ public class HotelController {
 		return hotelService.update(updateHotel);
 	}
 
-	@ApiOperation(value="Search hotels by name or address")
-	@GetMapping("/hotels/search")
-	public List<Hotel> getByNameOrAddress(@RequestParam(required=false) String name, @RequestParam(required=false) String address) {
-		return hotelService.getByNameOrAddress(name, address);
+	@ApiOperation(value = "Get all hotels by name or address sorted by name in ascending order")
+	@GetMapping("/hotels")
+	public List<Hotel> getByNameOrAddress(@RequestParam(required = false) String name,
+			@RequestParam(required = false) String address) {
+		return hotelService.getByNameAndAddressOrderByNameAsc(name, address);
 	}
 }

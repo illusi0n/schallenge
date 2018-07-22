@@ -7,7 +7,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface HotelRepository extends JpaRepository<Hotel, Long> {
-
 	List<Hotel> findAllByOrderByName();
-	List<Hotel> findByNameOrAddress(String name, String address);
+
+	List<Hotel> findByNameOrderByName(String name);
+
+	List<Hotel> findByAddressOrderByName(String address);
+
+	List<Hotel> findByNameAndAddressOrderByName(String name, String address);
 }

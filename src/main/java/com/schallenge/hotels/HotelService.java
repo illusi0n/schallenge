@@ -4,8 +4,7 @@ import java.util.List;
 
 public interface HotelService {
 	
-	List<Hotel> getAllAscending();
 	Hotel create(Hotel newHotel);
 	Hotel update(Hotel updateHotel);
-	List<Hotel> getByNameOrAddress(String name, String address);
+	List<Hotel> getByNameAndAddressOrderByNameAsc(String name, String address);
 }
