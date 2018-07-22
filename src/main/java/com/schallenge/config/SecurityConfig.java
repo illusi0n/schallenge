@@ -34,6 +34,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 					// Anyone can register
 					.antMatchers(HttpMethod.POST, "/accounts")
 					.permitAll()
+					// Anyone can visit swagger docs
+					.antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources", "/configuration/security",
+						"/swagger-ui.html", "/webjars/**", "/swagger-resources/configuration/ui", "/swagger-ui.html")
+					.permitAll()
 					// Any other endpoint is just visible for admins
 					.anyRequest()
 					.hasRole("ADMIN")

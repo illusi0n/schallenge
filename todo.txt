@@ -4,12 +4,12 @@
 	- Update Postman collection
 
 	Hotels
-	- Add auto-generated hotels at the beggining
 	- Use DTOs to hide information like IDs from DB, and generate IDs that clients can use
 	- Support images but don't store image in database, store image on filesystem and keep URI to the file in database
 	- Support geolocations by adding new class Geolocation that would have lat long attributes
 	- Add validation for unique hotel/address
 	- Add pagination support when searching hotels
+	- [DONE] Add auto-generated hotels at the beginning
 
 	Accounts
 	- When user is authenticated get a token, then use that in HTTP calls (e.g. Postman scripts) in order to have access
@@ -28,3 +28,6 @@
 	
 	DB
 	- Add constraints for each Entity
+	
+	Swagger
+	- [DONE] Fix acccess to swagger ui
