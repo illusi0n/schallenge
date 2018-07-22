@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.schallenge.accounts.Account;
-import com.schallenge.accounts.AccountRepository;
+import com.schallenge.accounts.AccountService;
 import com.schallenge.utils.DbInitializer;
 
 @SpringBootApplication
@@ -18,9 +17,10 @@ public class HotelsApplication {
 	}
 
 	@Bean
-	CommandLineRunner populateDB(AccountRepository accountRepository, PasswordEncoder passwordEncoder) {
+	CommandLineRunner populateDB(AccountService accountService, PasswordEncoder passwordEncoder) {
 		return args -> {
-			DbInitializer.createDefaultAdminAccount(accountRepository, passwordEncoder);
+			DbInitializer.createDefaultAdmin(accountService, passwordEncoder);
+			DbInitializer.createDefaultUser(accountService, passwordEncoder);
 		};
 	}
 }

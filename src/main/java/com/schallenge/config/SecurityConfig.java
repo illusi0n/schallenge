@@ -28,6 +28,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and()
 			.authorizeRequests()
+					// Admins and users can see list of hotels
+					.antMatchers(HttpMethod.GET, "/hotels")
+					.hasAnyRole(new String[]{"ADMIN", "USER"})
+					// Anyone can register
+					.antMatchers(HttpMethod.POST, "/accounts")
+					.permitAll()
+					// Any other endpoint is just visible for admins
 					.anyRequest()
 					.hasRole("ADMIN")
 				.and()

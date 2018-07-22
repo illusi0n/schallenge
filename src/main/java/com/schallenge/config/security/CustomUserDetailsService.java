@@ -3,7 +3,7 @@ package com.schallenge.config.security;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.schallenge.accounts.Account;
-import com.schallenge.accounts.AccountRepository;
+import com.schallenge.accounts.AccountService;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.User.UserBuilder;
@@ -16,11 +16,11 @@ import org.springframework.stereotype.Component;
 public class CustomUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	AccountRepository userRepository;
+	AccountService userService;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Account existingUser = userRepository.findByUsername(username);
+		Account existingUser = userService.findByUsername(username);
 
 		if (existingUser == null) {
 			throw new UsernameNotFoundException("User not found");
