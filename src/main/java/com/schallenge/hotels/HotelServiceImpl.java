@@ -11,7 +11,6 @@ public class HotelServiceImpl implements HotelService {
 	@Autowired
 	private HotelRepository hotelRepository;
 
-	@Override
 	public List<Hotel> getAllAscending() {
 		return hotelRepository.findAllByOrderByName();
 	}
