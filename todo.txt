@@ -1,7 +1,7 @@
 	Overall
 	- Wrap exceptions and return something more meaningful to the client (response error codes with message)
 	- Fix id generate issue
-	- Update Postman collection
+	- [DONE] Update Postman collection
 
 	Hotels
 	- Use DTOs to hide information like IDs from DB, and generate IDs that clients can use
@@ -9,6 +9,7 @@
 	- Support geolocations by adding new class Geolocation that would have lat long attributes
 	- Add validation for unique hotel/address
 	- Add pagination support when searching hotels
+	- [DONE] Merge /hotels and /hotels/search
 	- [DONE] Add auto-generated hotels at the beginning
 
 	Accounts
@@ -18,16 +19,16 @@
 	- Add email field and email verification
 	- Refactor create account with CreateAccountDTO
 	- Refactor Account DTO names
-	- Add to Swagger
-	
+
+	- [DONE] Add to Swagger
 	- [DONE] Add Spring Security for registering/authenticating users
 	- [DONE] Hash password before storing in DB
 
 	Unit tests
 	- Once validations are added for hotels/users unit tests should verify that only valid objects are passing validations
-	
+
 	DB
 	- Add constraints for each Entity
-	
+
 	Swagger
 	- [DONE] Fix acccess to swagger ui
